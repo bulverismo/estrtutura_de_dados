@@ -107,6 +107,7 @@ int main(int argc,char **argv) {
 	arguments.verbose ? "yes" : "no",
 	arguments.silent ? "yes" : "no");
     
+    printf("data 01/01/2021: ");
     print_date(data);
 
     //data = fill( atoi(arguments.args[0]), atoi(arguments.args[1]), atoi(arguments.args[2]) );
@@ -115,14 +116,30 @@ int main(int argc,char **argv) {
     
     if (test_str_date(arguments.args[0], &data))
     {
+        printf("data recebida: ");
+        print_date(data);
         printf("Qty days %d\n", qty_days_until_now(data));
         printf("valida\n");
 
         DATE data2;
-        if (date_gen_from_days(321, 1991, &data2))
-            print_date(data2);
-        else
-            printf("impossivel");
+        int x=0;
+        printf("\n");
+        while(x<366) 
+        {
+          if (date_gen_from_days(x, data.year, &data2)) {
+              printf("%d > ",x);
+              print_date(data2);
+              printf(" > ");
+              printf("%d", qty_days_until_now(data2));
+
+          }
+          else
+          {
+              printf("impossivel");
+          }
+          printf("\n");
+          x++;
+        }
     }
     else
     {

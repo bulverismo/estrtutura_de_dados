@@ -141,7 +141,7 @@ bool test_str_date(char str_date[], DATE *date)
 void print_date(DATE date)
 {
 
-    printf("data %d %d %d\n", date.day, date.month, date.year);
+    printf("%d %d %d", date.day, date.month, date.year);
 
 }
 //char* formatar(int format_size) {
